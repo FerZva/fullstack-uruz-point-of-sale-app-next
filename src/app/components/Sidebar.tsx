@@ -7,8 +7,8 @@ import vercelLogo from "../assets/vercelLogo.svg";
 
 const Sidebar = () => {
   return (
-    <div className="w-full max-w-[300px]">
-      <div className="flex justify-between items-center">
+    <div className="w-full max-w-[300px] h-screen border border-slate-200">
+      <div className="flex justify-between items-center p-2">
         <div>
           <Image
             src={vercelLogo}
@@ -19,19 +19,23 @@ const Sidebar = () => {
           />
         </div>
         <div>
-          <FiSidebar className="text-[30px]" />
+          <FiSidebar className="text-[30px] cursor-pointer" />
         </div>
       </div>
-      <nav className="flex flex-col">
-        {navigationItems.map((navigation) => (
-          <Link
-            href={navigation.LinkUrl}
-            key={navigation.linkId}
-            className="text-[20px]"
-          >
-            {navigation.linkName}
-          </Link>
-        ))}
+      <nav className="flex flex-col m-auto p-2">
+        {navigationItems.map((navigation) => {
+          const Icon = navigation.linkIcon;
+          return (
+            <Link
+              href={navigation.LinkUrl}
+              key={navigation.linkId}
+              className="text-[22px] rounded-md p-1 flex items-center my-2 hover:bg-slate-300"
+            >
+              <Icon />
+              <p className="ml-4">{navigation.linkName}</p>
+            </Link>
+          );
+        })}
       </nav>
     </div>
   );

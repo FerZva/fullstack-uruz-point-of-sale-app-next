@@ -13,7 +13,7 @@ export const navigationItems: NavigationItems[] = [
     linkId: 1,
     linkIcon: MdOutlineAnalytics,
     linkName: "Dashboard",
-    LinkUrl: "/views/products",
+    LinkUrl: "/views/dashboard",
   },
   {
     linkId: 2,
@@ -23,15 +23,15 @@ export const navigationItems: NavigationItems[] = [
   },
   {
     linkId: 3,
-    linkIcon: MdOutlineShoppingBag,
-    linkName: "Sales",
-    LinkUrl: "/views/sales",
-  },
-  {
-    linkId: 4,
     linkIcon: BiMoneyWithdraw,
     linkName: "POS",
     LinkUrl: "/views/pos",
+  },
+  {
+    linkId: 4,
+    linkIcon: MdOutlineShoppingBag,
+    linkName: "Sales",
+    LinkUrl: "/views/sales",
   },
   {
     linkId: 5,

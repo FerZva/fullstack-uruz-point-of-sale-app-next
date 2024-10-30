@@ -4,9 +4,9 @@ import Sidebar from "../components/Sidebar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex w-full flex-wrap">
+    <div className="flex w-full">
       <Sidebar />
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col w-full">
         <Header />
         {children}
       </div>
