@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { navigationItems } from "../services/data";
@@ -6,9 +7,24 @@ import { FiSidebar } from "react-icons/fi";
 import vercelLogo from "../assets/vercelLogo.svg";
 
 const Sidebar = () => {
+  const [menu, setMenu] = useState(false);
+
+  const handleMenuAction = () => {
+    setMenu(!menu);
+    console.log(menu);
+  };
+
   return (
-    <div className="w-full max-w-[300px] h-screen border border-slate-200">
-      <div className="flex justify-between items-center p-2">
+    <div
+      className={`w-full ${
+        menu ? "max-w-[300px]" : "max-w-[100px]"
+      } h-screen border border-slate-200`}
+    >
+      <div
+        className={`flex justify-between ${
+          menu ? "flex-row" : "flex-col"
+        } items-center p-2`}
+      >
         <div>
           <Image
             src={vercelLogo}
@@ -19,7 +35,10 @@ const Sidebar = () => {
           />
         </div>
         <div>
-          <FiSidebar className="text-[30px] cursor-pointer" />
+          <FiSidebar
+            className={`text-[25px] cursor-pointer ${menu ? "" : "mt-2"}`}
+            onClick={handleMenuAction}
+          />
         </div>
       </div>
       <nav className="flex flex-col m-auto p-2">
@@ -29,10 +48,12 @@ const Sidebar = () => {
             <Link
               href={navigation.LinkUrl}
               key={navigation.linkId}
-              className="text-[22px] rounded-md p-1 flex items-center my-2 hover:bg-slate-300"
+              className="text-[25px] rounded-md p-1 flex items-center my-2 hover:bg-slate-300"
             >
-              <Icon />
-              <p className="ml-4">{navigation.linkName}</p>
+              <Icon className={`${menu ? "" : "m-auto"}`} />
+              <p className={`${menu ? "ml-4" : ""}`}>
+                {menu ? navigation.linkName : ""}
+              </p>
             </Link>
           );
         })}
