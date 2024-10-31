@@ -48,9 +48,9 @@ const Sidebar = () => {
             <Link
               href={navigation.LinkUrl}
               key={navigation.linkId}
-              className="text-[25px] rounded-md p-1 flex items-center my-2 hover:bg-slate-300"
+              className="rounded-md p-1 flex items-center my-2 hover:bg-slate-300"
             >
-              <Icon className={`${menu ? "" : "m-auto"}`} />
+              <Icon className={`${menu ? "" : "m-auto"} text-[25px]`} />
               <p className={`${menu ? "ml-4" : ""}`}>
                 {menu ? navigation.linkName : ""}
               </p>
